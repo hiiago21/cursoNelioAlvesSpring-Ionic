@@ -34,18 +34,18 @@ public class CategoriaResouces {
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<?> find(@PathVariable Integer id){
 		
-		Categoria cat = service.find(id);
-		return ResponseEntity.ok().body(cat);
+		Categoria obj = service.find(id);
+		return ResponseEntity.ok().body(obj);
 	}
 	
 	@GetMapping()
 	public ResponseEntity<List<CategoriaDTO>> findAll(){
 		
-		List<Categoria> cats = service.findAll();
-		List<CategoriaDTO> catsReponse = cats.stream().map(cat -> new CategoriaDTO(cat)).collect(Collectors.toList());
+		List<Categoria> list = service.findAll();
+		List<CategoriaDTO> listDto = list.stream().map(obj -> new CategoriaDTO(obj)).collect(Collectors.toList());
 		
 		
-		return ResponseEntity.ok().body(catsReponse);
+		return ResponseEntity.ok().body(listDto);
 	}
 	
 	@GetMapping(value = "/page")

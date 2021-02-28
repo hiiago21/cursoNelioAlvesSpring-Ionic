@@ -11,6 +11,7 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import silva.Hiago.cursoms.domain.Categoria;
+import silva.Hiago.cursoms.domain.Cliente;
 import silva.Hiago.cursoms.dto.CategoriaDTO;
 import silva.Hiago.cursoms.repositories.CategoriaRepository;
 import silva.Hiago.cursoms.services.exceptions.DataIntegrityException;
@@ -43,7 +44,8 @@ public class CategoriaSevice {
 	
 	public Categoria update(Categoria obj) {
 		
-		find(obj.getId());
+		Categoria newObj =find(obj.getId());
+		updateData(newObj, obj);
 		return repository.save(obj);
 	}
 	
@@ -53,7 +55,7 @@ public class CategoriaSevice {
 			repository.deleteById(id);
 		}
 		catch (DataIntegrityViolationException e) {
-			throw new DataIntegrityException("Não é possível excluir uma categoria que tenha produtos!");
+			throw new DataIntegrityException("Não é possível excluir um cliente que tenha pedidos!");
 		}
 	}
 	
@@ -66,5 +68,9 @@ public class CategoriaSevice {
 	
 	public Categoria fromDto(CategoriaDTO catDto) {
 		return new Categoria(catDto.getId(), catDto.getNome());
+	}
+	
+	private void updateData(Categoria newObj, Categoria obj) {
+		newObj.setNome(obj.getNome());
 	}
 }
