@@ -11,7 +11,6 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import silva.Hiago.cursoms.domain.Categoria;
-import silva.Hiago.cursoms.domain.Cliente;
 import silva.Hiago.cursoms.dto.CategoriaDTO;
 import silva.Hiago.cursoms.repositories.CategoriaRepository;
 import silva.Hiago.cursoms.services.exceptions.DataIntegrityException;
