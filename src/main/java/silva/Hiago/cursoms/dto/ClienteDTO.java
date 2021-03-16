@@ -2,10 +2,9 @@ package silva.Hiago.cursoms.dto;
 
 import java.io.Serializable;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
-
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import silva.Hiago.cursoms.domain.Cliente;
 import silva.Hiago.cursoms.services.validations.ClienteUpdate;
